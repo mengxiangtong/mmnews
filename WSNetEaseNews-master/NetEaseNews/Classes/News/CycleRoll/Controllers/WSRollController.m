@@ -149,11 +149,12 @@ static NSString * const reuseIdentifier = @"rollCell";
     self.pageControl.currentPage = currentIndex;
 }
 
-
+#pragma mark - 点击集合视图cell 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
      
     if (self.selectedItem) {
     
+        //调用
         self.selectedItem(self.ads[indexPath.item]);
     }
     
