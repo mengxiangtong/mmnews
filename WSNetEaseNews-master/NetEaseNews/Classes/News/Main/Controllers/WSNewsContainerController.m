@@ -13,6 +13,13 @@
 #import "WSSearchController.h"
 #import "WSDayNewsController.h"
 
+
+/*
+ 
+    整体容器控制器
+ 
+ */
+
 @interface WSNewsContainerController ()
 
 @property (strong, nonatomic) NSArray *news;
@@ -38,6 +45,9 @@
         [vcs addObject:newVC];
     }
     
+    /*
+          集成
+     */
     
     WSContainerController *containVC = [WSContainerController containerControllerWithSubControlers:vcs parentController:self];
     containVC.navigationBarBackgrourdColor = [UIColor whiteColor];

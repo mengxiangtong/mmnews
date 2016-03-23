@@ -21,6 +21,15 @@
 #import "MBProgressHUD.h"
 #import "SDImageCache.h"
 
+
+/*
+ 
+    每一个页面的控制器
+ 
+ */
+
+
+
 @interface WSNewsController ()
 {
     
@@ -57,8 +66,9 @@
     
     // 轮播  赋值  点击事件block
      [self.rollVC rollControllerWithAds:ads selectedItem:^(id obj) {
-        
-            NSLog(@"点击事件block - %@", obj);
+            NSLog(@" 3实现block    ");
+         //实现block
+        NSLog(@"点击事件block - %@", obj);
         if([obj isKindOfClass:[WSAds class]]){
             
             WSAds *ad = obj;
@@ -120,12 +130,14 @@
     typeof(self) __weak weakSelf = self;
     
     refreshHeader.beginRefreshingBlock = ^(){
-        
+      //  NSLog(@" 3 实现刷新block ");
         weakSelf.index = 0;
         [weakSelf loadMoreDataCount:0];
         [[SDImageCache sharedImageCache] clearMemory];
         
     };
+    
+    
     
     refreshFooter = [[YiRefreshFooter alloc] init];
     refreshFooter.scrollView = self.tableView;

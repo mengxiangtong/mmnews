@@ -138,6 +138,7 @@
             _scrollView.contentInset=UIEdgeInsetsMake(headerHeight*1.5, 0, 0, 0);
         }];
         
+       // NSLog(@" 2,调用刷新block ");
         // block回调
         _beginRefreshingBlock();
     }

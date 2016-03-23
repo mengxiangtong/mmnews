@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 
 //定义block
-typedef void (^itemClick)(NSInteger selectedIndex);
+typedef void (^ItemClickBlock)(NSInteger selectedIndex);
 
 
 @interface WSNavigationView : UIScrollView
@@ -18,6 +18,6 @@ typedef void (^itemClick)(NSInteger selectedIndex);
 
 @property (strong, nonatomic) NSArray<NSString *> *items;
 
-+ (instancetype)navigationViewWithItems:(NSArray<NSString *> *)items itemClick:(itemClick)itemClick;
++ (instancetype)navigationViewWithItems:( NSArray <NSString *> * )items itemClick:(ItemClickBlock)itemClick;
 
 @end

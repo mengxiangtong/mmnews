@@ -154,6 +154,7 @@ static NSString * const reuseIdentifier = @"rollCell";
      
     if (self.selectedItem) {
     
+        NSLog(@" 2调用block ");
         //调用
         self.selectedItem(self.ads[indexPath.item]);
     }

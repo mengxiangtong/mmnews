@@ -69,6 +69,7 @@
  */
 - (void)beginRefreshing
 {
+        NSLog(@"   开始刷新操作  如果正在刷新则不做操作  ");
     if (!isRefresh) {
         isRefresh=YES;
         [activityView startAnimating];
@@ -78,6 +79,8 @@
             _scrollView.contentInset=UIEdgeInsetsMake(0, 0, footerHeight, 0);
             footerView.hidden = false;
         }];
+        
+       // NSLog(@" 2,调用刷新block ");
         //        block回调
         _beginRefreshingBlock();
     }

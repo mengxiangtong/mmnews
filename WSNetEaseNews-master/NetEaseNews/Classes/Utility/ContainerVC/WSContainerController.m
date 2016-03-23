@@ -50,18 +50,27 @@ static NSString *CellID = @"ControllerCell";
     return cell;
 }
 
-#pragma mark - collectionView delegate
+#pragma mark - collectionView delegate  减速触发
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView{
     
     NSInteger index = scrollView.contentOffset.x / self.view.bounds.size.width;
     
+    NSLog(@" selectedItemIndex setter 方法  ");
     self.navigationView.selectedItemIndex = index;
 }
+
+
+
+
+
+
 
 #pragma mark - setting
 
 - (void)setSelectedIndex:(NSInteger)selectedIndex{
+    
+        NSLog(@"setSelectedIndex ");
     
     _selectedIndex = selectedIndex;
     
@@ -146,13 +155,14 @@ static NSString *CellID = @"ControllerCell";
     
     if (self = [super init]) {
         
+        //1，初始化布局类
         UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
         _flowLayout = flowLayout;
         flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
         flowLayout.minimumLineSpacing = 0;
         flowLayout.minimumInteritemSpacing = 0;
         
-        //设置collectionView的属性
+        //2， 设置collectionView的属性
         UICollectionView *collectionView = [[UICollectionView alloc] initWithFrame:self.view.bounds collectionViewLayout:flowLayout];
         collectionView.pagingEnabled = YES;
         _collectionView = collectionView;
@@ -165,8 +175,10 @@ static NSString *CellID = @"ControllerCell";
         
         //添加导航view
         typeof(self) __weak weakObj= self;
+        
         WSNavigationView *view = [WSNavigationView navigationViewWithItems:nil itemClick:^(NSInteger selectedIndex) {
-            
+             //实现
+                NSLog(@"WSContainerController init   实现  传入  (暂时不执行)");
             [weakObj setSelectedIndex:selectedIndex];
         }];
         view.backgroundColor = [UIColor whiteColor];

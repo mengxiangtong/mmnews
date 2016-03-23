@@ -17,7 +17,7 @@
 
 @property (weak, nonatomic) UIButton *selectedItem;
 
-@property (copy, nonatomic) itemClick itemClickBlock;
+@property (copy, nonatomic) ItemClickBlock   itemClickBlock;
 
 @end
 
@@ -25,9 +25,11 @@
 
 
 
-#pragma mark - event
+#pragma mark - event  按钮切换
 
 - (void)itemClick:(UIButton *)sender {
+    
+        NSLog(@"-------------------------------- 按钮切换 ");
     
     if ([sender isEqual:self.selectedItem])
         return;
@@ -35,13 +37,15 @@
     self.selectedItem.selected = NO;
     sender.selected = YES;
    
-    //调用
+    //  调用
     if (self.itemClickBlock) {
         
         self.itemClickBlock(sender.tag);
-            NSLog(@"diao yong  %lu ",  sender.tag);
+        NSLog(@" 2 调用  传出 %lu ",  sender.tag);
     }
 
+    
+    
     //更改字体大小
     [UIView animateWithDuration:0.5 animations:^{
         
@@ -82,11 +86,15 @@
 
     self.selectedItem = sender;
     
-    NSLog(@"------------------------------------------ ");
+    NSLog(@"==================================== ");
  
 }
 
+
+#pragma mark - setter
 - (void)setSelectedItemIndex:(NSInteger)selectedItemIndex{
+    
+    NSLog(@"setSelectedItemIndex  setter 方法   传值 ");
     
     _selectedItemIndex = selectedItemIndex;
     
@@ -107,15 +115,16 @@
 
 #pragma mark - init
 
-+ (instancetype)navigationViewWithItems:(NSArray<NSString *> *)items itemClick:(itemClick)itemClick{
++ (instancetype)navigationViewWithItems:(NSArray<NSString *> *)items itemClick:(ItemClickBlock)itemClickBlock{
     
     WSNavigationView *nav = [[WSNavigationView alloc] init];
     
     nav.btns = [NSMutableArray arrayWithCapacity:items.count];
     
-    //实现block 传入
-    NSLog(@"实现block 传入 ");
-    nav.itemClickBlock = itemClick;
+    //
+    NSLog(@"  navigationViewWithItems 初始化 ----------- ");
+    
+    nav.itemClickBlock = itemClickBlock;
     
     nav.items = items;
     ////禁用滚动到最顶部的属性
