@@ -55,18 +55,24 @@
         ads = [self.jsonNews.firstObject ads] ? : @[self.jsonNews.firstObject];
     }
     
-    //轮播赋值
-    [self.rollVC rollControllerWithAds:ads selectedItem:^(id obj) {
+    // 轮播  赋值  点击事件block
+     [self.rollVC rollControllerWithAds:ads selectedItem:^(id obj) {
         
+            NSLog(@"点击事件block - %@", obj);
         if([obj isKindOfClass:[WSAds class]]){
             
             WSAds *ad = obj;
-            
+            NSLog(@"%@ ",  ad.docid);
+            NSLog(@"%@ ",  ad.url);
+
             if ([ad.tag isEqualToString:@"doc"]) {
                 
                 WSContentController *contentVC = [WSContentController contentControllerWithID:ad.docid];
                 [weakSelf.navigationController pushViewController:contentVC animated:YES];
+                
             }else{
+                
+                    NSLog(@"---  url  %@ ",  ad.url);
                 
                 [weakSelf pushPhotoControllerWithPhotoID:ad.url replyCount:1000];
             }
@@ -192,6 +198,8 @@
     }
     
 }
+
+#pragma mark - 进入图片详情页
 
 - (void)pushPhotoControllerWithPhotoID:(NSString *)photoid replyCount:(NSInteger)count{
     

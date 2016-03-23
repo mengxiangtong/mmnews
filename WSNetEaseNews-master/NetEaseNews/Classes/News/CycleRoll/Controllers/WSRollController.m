@@ -30,8 +30,9 @@
 @implementation WSRollController
 
 
+#pragma mark - block 做参数
 - (void)rollControllerWithAds:(NSArray *)ads selectedItem:(SelectedItemBlock)sel{
-    
+    NSLog(@"--  %@ ", sel);
     self.ads = ads;
     self.selectedItem = sel;
 }
@@ -42,7 +43,7 @@ static NSString * const reuseIdentifier = @"rollCell";
 - (void)viewDidLoad {
     [super viewDidLoad];
     
-   self.flowLayout.minimumLineSpacing = 0;
+    self.flowLayout.minimumLineSpacing = 0;
     self.flowLayout.scrollDirection = UICollectionViewScrollDirectionHorizontal;
     
     self.collectionView.backgroundColor = [UIColor whiteColor];

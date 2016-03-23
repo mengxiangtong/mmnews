@@ -174,6 +174,8 @@
     
     id obj = [[self alloc] init];
     
+    NSLog(@" docID==  %@ ",  docID);
+    
     [obj setDocid:docID];
     
     return obj;
