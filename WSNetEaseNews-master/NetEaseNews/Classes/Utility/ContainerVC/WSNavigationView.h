@@ -8,6 +8,11 @@
 
 #import <UIKit/UIKit.h>
 
+
+/*
+    传出类定义block
+ */
+
 //定义block
 typedef void (^ItemClickBlock)(NSInteger selectedIndex);
 
@@ -17,6 +22,9 @@ typedef void (^ItemClickBlock)(NSInteger selectedIndex);
 @property (assign, nonatomic) NSInteger selectedItemIndex;
 
 @property (strong, nonatomic) NSArray<NSString *> *items;
+
+
+//block 做函数参数
 
 + (instancetype)navigationViewWithItems:( NSArray <NSString *> * )items itemClick:(ItemClickBlock)itemClick;
 

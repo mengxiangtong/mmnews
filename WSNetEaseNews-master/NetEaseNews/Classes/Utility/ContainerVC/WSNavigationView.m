@@ -29,7 +29,7 @@
 
 - (void)itemClick:(UIButton *)sender {
     
-        NSLog(@"-------------------------------- 按钮切换 ");
+    NSLog(@" 开始  》》  点击按钮 navigationview-------------------------------- 按钮切换 ");
     
     if ([sender isEqual:self.selectedItem])
         return;
@@ -41,7 +41,7 @@
     if (self.itemClickBlock) {
         
         self.itemClickBlock(sender.tag);
-        NSLog(@" 2 调用  传出 %lu ",  sender.tag);
+        NSLog(@"3-  调用  传出 --==》 %lu ",  sender.tag);
     }
 
     
@@ -91,17 +91,23 @@
 }
 
 
+
 #pragma mark - setter
 - (void)setSelectedItemIndex:(NSInteger)selectedItemIndex{
     
-    NSLog(@"setSelectedItemIndex  setter 方法   传值 ");
+    NSLog(@" WSNavigationView   setSelectedItemIndex  setter 方法   传值 ");
     
     _selectedItemIndex = selectedItemIndex;
     
     UIButton *item = self.btns[selectedItemIndex];
     
+    //按钮切换
     [self itemClick:item];
+    
 }
+
+
+
 
 
 - (void)setContentOffset:(CGPoint)contentOffset{
@@ -130,8 +136,12 @@
     ////禁用滚动到最顶部的属性
     nav.scrollsToTop = NO;
 
+        NSLog(@"-=====--------==---==== ");
+    
     return nav;
 }
+
+
 
 - (void)layoutSubviews{
     
@@ -147,6 +157,10 @@
     self.contentSize = CGSizeMake(kItemW * self.btns.count + kMargin * 2, kViewH);
 }
 
+
+
+
+#pragma mark - 重写
 - (void)setItems:(NSArray<NSString *> *)items{
     
     _items = items;
@@ -155,10 +169,12 @@
     for (NSInteger i=0; i<items.count; i++) {
         
         UIButton *item = [[UIButton alloc] init];
+        
         [item setTitle:items[i] forState:UIControlStateNormal];
         [item setTitleColor:[UIColor redColor] forState:UIControlStateNormal];
         item.titleLabel.font = [UIFont systemFontOfSize:13];
         item.titleLabel.textAlignment = NSTextAlignmentCenter;
+        
         [item addTarget:self action:@selector(itemClick:) forControlEvents:UIControlEventTouchUpInside];
         [self.btns addObject:item];
         [self addSubview:item];
@@ -166,6 +182,9 @@
         
     }
 }
+
+
+
 
 - (void)setFrame:(CGRect)frame{
     
