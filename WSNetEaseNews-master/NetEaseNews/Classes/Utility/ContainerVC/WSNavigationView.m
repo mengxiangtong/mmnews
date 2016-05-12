@@ -19,6 +19,9 @@
 
 @property (copy, nonatomic) ItemClickBlock   itemClickBlock;
 
+@property (strong, nonatomic) WSContainerController *conVC;
+
+
 @end
 
 @implementation WSNavigationView

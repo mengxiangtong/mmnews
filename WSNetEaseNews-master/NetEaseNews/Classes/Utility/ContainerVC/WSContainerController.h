@@ -7,12 +7,16 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "WSNavigationView.h"
 
 @interface WSContainerController : UIViewController
 
 @property (strong, nonatomic) UIViewController *parentController;
 
 @property (strong, nonatomic) UIColor *navigationBarBackgrourdColor;
+
+//@property (strong, nonatomic) WSNavigationView *navView;
+
 
 + (instancetype) containerControllerWithSubControlers:(NSArray<UIViewController *> *)viewControllers parentController:(UIViewController *)vc;
 

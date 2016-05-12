@@ -1568,6 +1568,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				GCC_PREFIX_HEADER = NetEaseNews/Classes/Utility/Common/PrefixHeader.h;
 				INFOPLIST_FILE = NetEaseNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.wackosix.netesenews;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1581,6 +1582,7 @@
 				ASSETCATALOG_COMPILER_LAUNCHIMAGE_NAME = "Brand Assets";
 				GCC_PREFIX_HEADER = NetEaseNews/Classes/Utility/Common/PrefixHeader.h;
 				INFOPLIST_FILE = NetEaseNews/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 9.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = cn.wackosix.netesenews;
 				PRODUCT_NAME = "$(TARGET_NAME)";

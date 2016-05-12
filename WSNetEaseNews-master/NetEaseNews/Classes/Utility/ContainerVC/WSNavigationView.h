@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "WSContainerController.h"
 
 /*
     传出类定义block

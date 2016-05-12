@@ -19,7 +19,11 @@
 
 @property (weak, nonatomic) UICollectionViewFlowLayout *flowLayout;
 
+
+
 @property (weak, nonatomic) WSNavigationView *navigationView;
+
+
 
 @end
 
@@ -55,14 +59,22 @@ static NSString *CellID = @"ControllerCell";
         collectionView.showsHorizontalScrollIndicator = NO;
         [self.view addSubview:collectionView];
         
+        
+        
+        //1 循环引用就是当self 拥有一个block的时候，在block 又调用self的方法。形成你中有我，我中有你，谁都无法将谁释放的困局。
+        
         //添加导航view
         typeof(self) __weak weakObj= self;
         
         WSNavigationView *view = [WSNavigationView navigationViewWithItems:nil itemClick:^(NSInteger selectedIndex) {
             //实现
             NSLog(@"2- WSContainerController init   实现  传入 点击 %lu ",  selectedIndex);
+            //传入 弱引用
+          //  [weakObj setSelectedIndex:selectedIndex];
+           
+            [self setSelectedIndex:selectedIndex];
+
             
-            [weakObj setSelectedIndex:selectedIndex];
         }];
         
         view.backgroundColor = [UIColor whiteColor];
