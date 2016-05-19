@@ -122,7 +122,7 @@
 }
 
 
-#pragma mark - init
+#pragma mark - init block 做参数，实现方法， －－
 
 + (instancetype)navigationViewWithItems:(NSArray<NSString *> *)items itemClick:(ItemClickBlock)itemClickBlock{
     

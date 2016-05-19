@@ -65,7 +65,7 @@ static NSString *CellID = @"ControllerCell";
         
         //添加导航view
         typeof(self) __weak weakObj= self;
-        
+        //调用 block做参数，方法。  － 传入   意义在于：当点击时，传入信息到此。
         WSNavigationView *view = [WSNavigationView navigationViewWithItems:nil itemClick:^(NSInteger selectedIndex) {
             //实现
             NSLog(@"2- WSContainerController init   实现  传入 点击 %lu ",  selectedIndex);
